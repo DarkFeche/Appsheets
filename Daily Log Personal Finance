@@ -1,0 +1,27 @@
+function variaciondiariatotal() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.setActiveSheet(spreadsheet.getSheetByName('VarDiariaTotales'), true);
+  spreadsheet.getRange('a2:m2').insertCells(SpreadsheetApp.Dimension.ROWS);
+  spreadsheet.getRange('registrototaleu').copyTo(spreadsheet.getRange('B2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('A2').activate();
+  var date = new Date();
+  //date.setHours(0, 0, 0, 0);
+  spreadsheet.getActiveRangeList().setValue(date);
+  //spreadsheet.getRange('c3:d3').copyTo(spreadsheet.getRange('c2:d2'), SpreadsheetApp.CopyPasteType.PASTE_NORMAL, false);
+  spreadsheet.getRange('totaldeudores').copyTo(spreadsheet.getRange('c2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('totalrentavariable').copyTo(spreadsheet.getRange('d2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('totalrentafija').copyTo(spreadsheet.getRange('e2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('liquidousd').copyTo(spreadsheet.getRange('f2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('liquidoeu').copyTo(spreadsheet.getRange('g2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('liquidoars').copyTo(spreadsheet.getRange('h2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('registrototalars').copyTo(spreadsheet.getRange('i2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('registrototalusd').copyTo(spreadsheet.getRange('j2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('bienesdeuso').copyTo(spreadsheet.getRange('k2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+  spreadsheet.getRange('totaletoro').copyTo(spreadsheet.getRange('l2'), SpreadsheetApp.CopyPasteType.PASTE_VALUES, false);
+};
+
+function deshacer() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.setActiveSheet(spreadsheet.getSheetByName('VarDiariaTotales'), true);
+  spreadsheet.getRange('a2:m2').deleteCells(SpreadsheetApp.Dimension.ROWS);
+};
